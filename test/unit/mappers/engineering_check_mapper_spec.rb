@@ -7,7 +7,7 @@ describe EngineeringCheckMapper do
     it "returns a mapped EngineeringCheck object" do
       mapper = EngineeringCheckMapper.new
 
-      expected = EPlusOut::Models::EngineeringCheck.new(50, 60, 20, 40, 10, 1)
+      expected = EPlusOut::Models::EngineeringCheck.new(nil, 50, 60, 20, 40, 10, 1)
 
       result = mapper.(["50", "60", "20", "40", "10", "1"])
 

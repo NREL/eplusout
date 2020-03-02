@@ -27,6 +27,7 @@ module EPlusOut
       def find_by_name(name)
         data = @gateway.where(clauses_with_name(name), order_by:order_by, distinct: false)
         object = @mapper.(data)
+        object.name = name
 
         return object
       end

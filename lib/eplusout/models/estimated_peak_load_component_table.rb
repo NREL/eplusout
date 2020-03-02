@@ -1,6 +1,7 @@
 module EPlusOut
   module Models
     EstimatedPeakLoadComponentTable = Struct.new(
+        :name,
         :doas_direct_to_zone,
         :equipment,
         :exterior_floor,
@@ -27,6 +28,8 @@ module EPlusOut
         :roof,
         :water_use_equipment,
         :zone_ventilation
-    )
+    ) do
+      include Models::Model
+    end
   end
 end

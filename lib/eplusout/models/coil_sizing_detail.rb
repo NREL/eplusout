@@ -1,6 +1,8 @@
 module EPlusOut
   module Models
-    CoilSizingDetail = Struct.new(:autosized_coil_airflow,
+
+    CoilSizingDetail = Struct.new(:name,
+                                  :autosized_coil_airflow,
                                   :autosized_coil_capacity,
                                   :autosized_coil_water_flow,
                                   :coil_air_mass_flow_rate_at_ideal_loads_peak,
@@ -84,6 +86,8 @@ module EPlusOut
                                   :zone_air_relative_humidity_at_ideal_loads_peak,
                                   :zone_latent_heat_gain_at_ideal_loads_peak,
                                   :zone_names,
-                                  :zone_sensible_heat_gain_at_ideal_loads_peak)
+                                  :zone_sensible_heat_gain_at_ideal_loads_peak) do
+      include Models::Model
+    end
   end
 end

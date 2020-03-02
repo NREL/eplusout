@@ -9,6 +9,8 @@ module EPlusOut
         :sensible_return_air,
         :total,
         :total_per_area,
-    )
+    ) do
+      include Models::Model
+    end
   end
 end

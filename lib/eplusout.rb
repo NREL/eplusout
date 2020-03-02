@@ -1,5 +1,6 @@
 require_relative 'eplusout/gateways/sql_gateway'
 
+require_relative 'eplusout/models/model'
 require_relative 'eplusout/models/coil_sizing_detail'
 require_relative 'eplusout/models/engineering_check'
 require_relative 'eplusout/models/estimated_peak_load_component'

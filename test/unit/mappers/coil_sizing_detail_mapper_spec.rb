@@ -6,7 +6,6 @@ describe CoilSizingDetailMapper do
   describe "#call" do
     it "returns a mapped CoilSizingDetail object" do
       mapper = CoilSizingDetailMapper.new
-      name = "Zone 1"
 
       params = ["No", "Yes", "unknown", "0.79403004", "-999.0", "0.804785", "-999.0000", "16.70", "-999.00", "37036.7",
                 "-999.0", "0.00800000", "-999.0", "11.31", "-999.00", "-999.00", "18865.582", "18865.582", "-999.0",
@@ -20,7 +19,7 @@ describe CoilSizingDetailMapper do
                 "0.00679331", "N/A", "N/A", "N/A", "-999.0000", "21.10", "0.00679331", "35.8215", "0.00",
                 "ZONE EQUIPMENT 1-1", "15299.42"]
 
-      expected = EPlusOut::Models::CoilSizingDetail.new(
+      expected = EPlusOut::Models::CoilSizingDetail.new(nil,
           "No", "Yes", "unknown", 0.79403004, -999.0, 0.804785, -999.0000, 16.70, -999.00, 37036.7,
           -999.0, 0.00800000, -999.0, 11.31, -999.00, -999.00, 18865.582, 18865.582, -999.0,
           -999.0, -999.0, 40.00, -999.00, 60796.0, -999.0, 0.00800000, -999.0, 18.84, -999.00,
