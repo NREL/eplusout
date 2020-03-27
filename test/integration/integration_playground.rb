@@ -5,15 +5,12 @@ puts OpenStudio::OptionalStringVector.new([]).get
 
 sql_file = OpenStudio::SqlFile.new("/Users/npflaum/Documents/GitHub/eplusout/test/fixtures/peak_load_component_repository.sql")
 
-container = EPlusOut::Container.default_configuration(sql_file)
+container = EPlusOut.container(sql_file)
 
-puts container.relations[:coil_sizing_details].all
-puts container.relations[:cooling_peak_conditions].all
-puts container.relations[:heating_peak_conditions].all
-puts container.relations[:engineering_checks_for_cooling].all
-puts container.relations[:engineering_checks_for_heating].all
-puts container.relations[:estimated_cooling_peak_load_component_tables].all
-puts container.relations[:estimated_heating_peak_load_component_tables].all
-
-require 'json'
-puts container.relations[:cooling_peak_conditions].all[0].to_h.to_json
+puts container[:coil_sizing_details].all
+puts container[:cooling_peak_conditions].all
+puts container[:heating_peak_conditions].all
+puts container[:engineering_check_for_coolings].all
+puts container[:engineering_check_for_heatings].all
+puts container[:estimated_cooling_peak_load_component_tables].all
+puts container[:estimated_heating_peak_load_component_tables].all

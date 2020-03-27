@@ -1,3 +1,5 @@
+require_relative 'canister'
+
 require_relative 'eplusout/gateways/sql_gateway'
 
 require_relative 'eplusout/models/model'

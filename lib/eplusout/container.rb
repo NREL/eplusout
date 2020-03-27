@@ -1,25 +1,16 @@
 module EPlusOut
-  class Container
-    attr_reader :relations
+  def self.container(sql_file)
+    container = Canister.new
 
-    def self.default_configuration(sql_file)
-      container = new
+    container.register(:sql_gateway) { Gateways::SqlGateway.new(sql_file) }
+    container.register(:coil_sizing_details) { |c| Relations::CoilSizingDetails.new(c.sql_gateway) }
+    container.register(:cooling_peak_conditions) { |c| Relations::CoolingPeakConditions.new(c.sql_gateway) }
+    container.register(:heating_peak_conditions) { |c| Relations::HeatingPeakConditions.new(c.sql_gateway) }
+    container.register(:engineering_check_for_coolings) { |c| Relations::EngineeringCheckForCoolings.new(c.sql_gateway) }
+    container.register(:engineering_check_for_heatings) { |c| Relations::EngineeringCheckForHeatings.new(c.sql_gateway) }
+    container.register(:estimated_cooling_peak_load_component_tables) { |c| Relations::EstimatedCoolingPeakLoadComponentTables.new(c.sql_gateway) }
+    container.register(:estimated_heating_peak_load_component_tables) { |c| Relations::EstimatedHeatingPeakLoadComponentTables.new(c.sql_gateway) }
 
-      gateway = Gateways::SqlGateway.new(sql_file)
-
-      container.relations[:coil_sizing_details] = Relations::CoilSizingDetails.new(gateway)
-      container.relations[:cooling_peak_conditions] = Relations::CoolingPeakConditions.new(gateway)
-      container.relations[:heating_peak_conditions] = Relations::HeatingPeakConditions.new(gateway)
-      container.relations[:engineering_check_for_coolings] = Relations::EngineeringCheckForCoolings.new(gateway)
-      container.relations[:engineering_check_for_heatings] = Relations::EngineeringCheckForHeatings.new(gateway)
-      container.relations[:estimated_cooling_peak_load_component_tables] = Relations::EstimatedCoolingPeakLoadComponentTables.new(gateway)
-      container.relations[:estimated_heating_peak_load_component_tables] = Relations::EstimatedHeatingPeakLoadComponentTables.new(gateway)
-
-      container
-    end
-
-    def initialize
-      @relations = {}
-    end
+    container
   end
 end

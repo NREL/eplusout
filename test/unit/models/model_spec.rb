@@ -2,10 +2,12 @@ require_relative '../../test_helper'
 
 include EPlusOut::Models
 
-describe Model do
+describe EPlusOut::Models::Model do
 
-  Foo = Struct.new(:bar, :baz) do
-    include Model
+  before do
+    Foo = Struct.new(:bar, :baz) do
+      include Model
+    end
   end
 
   describe "#to_json" do

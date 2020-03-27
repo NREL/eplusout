@@ -39,7 +39,7 @@ describe CoilSizingDetails do
                                                         "unknown", "DENVER INTL AP ANN HTG 99.6% CONDNS DB", "DENVER INTL AP ANN HTG 99.6% CONDNS DB", "unknown",
                                                         1004.8586, "ADU ZONE EQUIPMENT 1-1 1", "ZONEHVAC:AIRDISTRIBUTIONUNIT", 1019.7116, "No", -17.40,
                                                         0.0000, 0.00099203, 0.00000000, -17.40, -999.00, -999.00, -999.00, -999.00, -999.0000,
-                                                        -999.0000, -999.0, "", 0.9866, 0.000, -999.0, -999.0, "unknown", "unknown", 21.10,
+                                                        -999.0000, -999.0, nil, 0.9866, 0.000, -999.0, -999.0, "unknown", "unknown", 21.10,
                                                         0.00679331, "N/A", "N/A", "N/A", -999.0000, 21.10, 0.00679331, 35.8215, 0.00,
                                                         "ZONE EQUIPMENT 1-1", 15299.42
       )

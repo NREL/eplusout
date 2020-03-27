@@ -2,12 +2,13 @@
 
 describe EPlusOut::Mappers::Mapper do
 
-  Foo = Struct.new(:bar, :baz)
+  Foo = Struct.new(:bar, :baz, :quu)
 
   class FooMapper < EPlusOut::Mappers::Mapper
     PARAM_MAP = [
         {:index => 0, :name => :bar, :type => 'string'},
-        {:index => 1, :name => :baz, :type => 'double'}
+        {:index => 1, :name => :baz, :type => 'double'},
+        {:index => 2, :name => :quu, :type => 'double'}
     ]
 
     def klass
@@ -41,8 +42,8 @@ describe EPlusOut::Mappers::Mapper do
     it "maps data to a new instance of the klass" do
       mapper = FooMapper.new()
 
-      expected = Foo.new("A", 1)
-      result = mapper.(["A", "1"])
+      expected = Foo.new("A", 1, nil)
+      result = mapper.(["A", "1", ""])
 
       result.must_equal expected
     end
